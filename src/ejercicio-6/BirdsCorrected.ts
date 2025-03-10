@@ -1,15 +1,15 @@
 // Clase base para todas las aves
-abstract class BirdCorrected {
+export abstract class BirdCorrected {
   abstract makeSound(): void;
 }
 
 // Interfaz para las aves que pueden volar
-interface CanFly {
+export interface CanFly {
   fly(): void;
 }
 
 // El gorrión puede volar, por lo que implementa CanFly
-class SparrowCorrected extends Bird implements CanFly {
+export class SparrowCorrected extends BirdCorrected implements CanFly {
   makeSound(): void {
     console.log("Chirp chirp!");
   }
@@ -20,7 +20,7 @@ class SparrowCorrected extends Bird implements CanFly {
 }
 
 // El pingüino NO implementa CanFly porque no puede volar
-class PenguinCorrected extends Bird {
+export class PenguinCorrected extends BirdCorrected {
   makeSound(): void {
     console.log("Honk honk!");
   }

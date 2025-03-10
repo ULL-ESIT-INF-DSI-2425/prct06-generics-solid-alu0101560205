@@ -1,13 +1,13 @@
 import * as fs from "fs";
 
 // Interfaz que define la funcionalidad de almacenamiento
-interface Storage {
+export interface Storage {
   read(): string;
   write(data: string): void;
 }
 
 // Implementación concreta para archivos
-class FileStorage implements Storage {
+export class FileStorage implements Storage {
   constructor(private filePath: string) {}
 
   read(): string {
@@ -30,7 +30,7 @@ class FileStorage implements Storage {
 }
 
 // Clase separada para gestionar archivos con independencia del tipo de almacenamiento
-class FileManager {
+export class FileManager {
   constructor(private storage: Storage) {}
 
   getContent(): string {

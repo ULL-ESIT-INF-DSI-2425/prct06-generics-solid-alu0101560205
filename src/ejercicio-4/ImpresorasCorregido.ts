@@ -1,13 +1,13 @@
-interface Printable {
+export interface Printable {
   print(): void
   
 }
 
-interface Scannable {
+export interface Scannable {
   scan(): void
 }
 
-class PrinterCorrected implements Printable {
+export class PrinterCorrected implements Printable {
   print(): void {
     console.log('Printing...')
   }
@@ -15,7 +15,7 @@ class PrinterCorrected implements Printable {
   scan(): void { }
 }
 
-class ScannerCorrrected implements Scannable {
+export class ScannerCorrrected implements Scannable {
   print(): void { }
 
   scan(): void {
@@ -23,7 +23,7 @@ class ScannerCorrrected implements Scannable {
   }
 }
 
-class PrinterScannerCorrected implements Printable, Scannable {
+export class PrinterScannerCorrected implements Printable, Scannable {
   print(): void {
     console.log('Printing...')
   }
@@ -36,14 +36,14 @@ class PrinterScannerCorrected implements Printable, Scannable {
 // Client code
 const printer_ = new PrinterCorrected();
 // Printing
-printer.print();
+printer_.print();
 
 const scanner_ = new ScannerCorrrected();
 // Scanning
-scanner.scan();
+scanner_.scan();
 
 const printerScanner_ = new PrinterScannerCorrected();
 // Printing
-printerScanner.print();
+printerScanner_.print();
 // Scanning
-printerScanner.scan();
+printerScanner_.scan();
