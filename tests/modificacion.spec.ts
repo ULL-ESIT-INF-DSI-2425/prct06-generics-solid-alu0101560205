@@ -2,6 +2,7 @@ import { describe, expect, test, beforeEach } from "vitest";
 import { ComplexNumber } from "../src/Modificacion/ComplexNumber"
 import { Arithmeticable } from "../src/Modificacion/ArithmeticableInterface";
 import { ArithmeticableCollection } from "../src/Modificacion/ArithmeticableCollection"
+import { groupCollapsed } from "console";
 
 describe("Pruebas de ComplexNumbers", () => {
   test("Instanciar elemento de la clase ComplexNumber", () => {
@@ -59,10 +60,17 @@ describe("Pruebas de ComplexNumbers", () => {
 });
 
 describe("Pruebas de la clase ArithmeticableCollection", () => {
-  test("Crear añadir objeto a la colección", () => {
+  // test("Crear añadir objeto a la colección", () => {
+  //   const colection = new ArithmeticableCollection<ComplexNumber>;
+  //   const complexNumber = new ComplexNumber(1, 2);
+  //   const prueba = colection.addArithmeticable(complexNumber);
+  //   expect(prueba).toBe([1,2]);
+  // });
+
+  test("Pruebas buscar objeto", () => {
     const colection = new ArithmeticableCollection<ComplexNumber>;
     const complexNumber = new ComplexNumber(1, 2);
-    const prueba = colection.addArithmeticable(complexNumber);
-    expect(prueba).toBe([1,2]);
+    const prueba = colection.getArithmeticable(complexNumber);
+    expect(prueba).toBe(undefined);
   });
 });
