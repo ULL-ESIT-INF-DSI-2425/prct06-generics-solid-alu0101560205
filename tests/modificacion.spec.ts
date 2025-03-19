@@ -144,5 +144,5 @@ describe("Test de la clase adapter", () => {
     let complex = new ComplexNumber(2, 4);
     let result = new ComplexNumber(0.05, -0.1);
     expect(adapt.divide(complex)).toStrictEqual(result);
-  })
+  });
 });
