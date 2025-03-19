@@ -3,6 +3,7 @@ import { ComplexNumber } from "../src/Modificacion/ComplexNumber"
 import { Arithmeticable } from "../src/Modificacion/ArithmeticableInterface";
 import { ArithmeticableCollection } from "../src/Modificacion/ArithmeticableCollection"
 import { groupCollapsed } from "console";
+import { RationalNumber } from "../src/Modificacion/RationalNumber"
 
 describe("Pruebas de ComplexNumbers", () => {
   test("Instanciar elemento de la clase ComplexNumber", () => {
@@ -73,4 +74,39 @@ describe("Pruebas de la clase ArithmeticableCollection", () => {
     const prueba = colection.getArithmeticable(complexNumber);
     expect(prueba).toBe(undefined);
   });
+});
+
+describe("Pruebas de la clase RationalNumbers", () => {
+  test("Instanciar un numero racional", () => {
+    const rational = new RationalNumber(1, 2);
+    expect(rational).toBeInstanceOf(RationalNumber);
+  });
+
+  test("Debe sumar dos numeros racionales", () => {
+    const rational = new RationalNumber(1, 2);
+    const rational2 = new RationalNumber(3, 4);
+    const result = new RationalNumber(10, 8);
+    expect(rational.add(rational2)).toStrictEqual(result);
+  });
+
+  test("Debe restar dos numeros racionales", () => {
+    const rational = new RationalNumber(1, 2);
+    const rational2 = new RationalNumber(3, 4);
+    const result = new RationalNumber(-2, 8);
+    expect(rational.substract(rational2)).toStrictEqual(result);
+  });
+
+  test("Debe multiplicar dos numeros complejos", () => {
+    const rational = new RationalNumber(1, 2);
+    const rational2 = new RationalNumber(3, 4);
+    const result = new RationalNumber(3, 8);
+    expect(rational.multiply(rational2)).toStrictEqual(result);
+  });
+
+  test("Debe dividir dos numeros complejos", () => {
+    const rational = new RationalNumber(1, 2);
+    const rational2 = new RationalNumber(3, 4);
+    const result = new RationalNumber(4, 6);
+    expect(rational.divide(rational2)).toStrictEqual(result);
+  })
 });
