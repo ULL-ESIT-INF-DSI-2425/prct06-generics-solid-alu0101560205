@@ -58,4 +58,19 @@ export class RationalNumber implements Arithmeticable<RationalNumber> {
     let result = new RationalNumber(num, den);
     return result;
   }
+  /**
+   * Getter para obtener el numerador
+   * @returns numerador del racional
+   */
+  getNumerador(): number {
+    return this.numerador;
+  }
+  /**
+   * Getter para obtener el denominador
+   * @return denominador del racional
+   */
+  getDenominador(): number {
+    return this.denominador;
+  }
+
 }

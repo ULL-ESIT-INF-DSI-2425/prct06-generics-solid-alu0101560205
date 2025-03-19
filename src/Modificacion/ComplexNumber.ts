@@ -56,4 +56,18 @@ export class ComplexNumber implements Arithmeticable<ComplexNumber> {
     let result = new ComplexNumber(totalReal, totalImagianary);
     return result;
   }
+  /**
+   * Getter para obtener la parte real del numero complejo
+   * @returns parte real del numero complejo
+   */
+  getReal(): number {
+    return this.realPart;
+  }
+  /**
+   * Getter para obtener la parte imaginaria del numero complejo
+   * @returns parte imaginaria de un numero complejo
+   */
+  getImaginary(): number {
+    return this.imaginaryPart;
+  }
 }
