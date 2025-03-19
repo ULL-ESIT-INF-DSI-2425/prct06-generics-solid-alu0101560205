@@ -4,6 +4,8 @@ import { Arithmeticable } from "../src/Modificacion/ArithmeticableInterface";
 import { ArithmeticableCollection } from "../src/Modificacion/ArithmeticableCollection"
 import { groupCollapsed } from "console";
 import { RationalNumber } from "../src/Modificacion/RationalNumber"
+import { Adapter } from "../src/Modificacion/Adapter"
+import { copyFile } from "fs";
 
 describe("Pruebas de ComplexNumbers", () => {
   test("Instanciar elemento de la clase ComplexNumber", () => {
@@ -108,5 +110,39 @@ describe("Pruebas de la clase RationalNumbers", () => {
     const rational2 = new RationalNumber(3, 4);
     const result = new RationalNumber(4, 6);
     expect(rational.divide(rational2)).toStrictEqual(result);
+  })
+});
+
+describe("Test de la clase adapter", () => {
+  test("Suma de complejo y racional", () => {
+    let rat = new RationalNumber(1, 2);
+    let adapt = new Adapter(rat);
+    let complex = new ComplexNumber(2, 4);
+    let result = new ComplexNumber(2.5, 4);
+    expect(adapt.add(complex)).toStrictEqual(result);
+  });
+
+  test("Resta de complejo y racional", () => {
+    let rat = new RationalNumber(1, 2);
+    let adapt = new Adapter(rat);
+    let complex = new ComplexNumber(2, 4);
+    let result = new ComplexNumber(-1.5, -4);
+    expect(adapt.substract(complex)).toStrictEqual(result);
+  });
+
+  test("Multiplicacion de complejo y racional", () => {
+    let rat = new RationalNumber(1, 2);
+    let adapt = new Adapter(rat);
+    let complex = new ComplexNumber(2, 4);
+    let result = new ComplexNumber(1, 2);
+    expect(adapt.multiply(complex)).toStrictEqual(result);
+  });
+
+  test("Dividir complejo y racional", () => {
+    let rat = new RationalNumber(1, 2);
+    let adapt = new Adapter(rat);
+    let complex = new ComplexNumber(2, 4);
+    let result = new ComplexNumber(0.05, -0.1);
+    expect(adapt.divide(complex)).toStrictEqual(result);
   })
 });
